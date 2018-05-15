@@ -1,1 +1,2 @@
-# hilaryhampton.github.io
+# hilaryhampton.com
+# hhamptondesign.com
