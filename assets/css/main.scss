@@ -5,9 +5,9 @@ $button-radius: 50px;
 $shadow: 0px 20px 30px rgba(56,59,83,.1);
 $shadow-light: 0px 15px 30px rgba(146,175,215,.4);
 $shadow-bright: 0px 10px 30px rgba(255,106,207,.3);
-$xs: 5px;
-$sm: 10px;
-$md: 20px;
+$xs: 10px;
+$sm: 20px;
+$md: 50px;
 $lg: 100px;
 $xl: 160px;
 
@@ -44,6 +44,9 @@ $white: #ffffff;
 /* import grid */
 
 @import "flexboxgrid";
+@import "../slick/slick";
+@import "../slick/slick-theme";
+
 .center {
     justify-content: center !important;}
 
@@ -108,9 +111,9 @@ $white: #ffffff;
     -ms-transform: scale(1.2);
     transform: scale(1.2);}
 @mixin oversized-right {
-    -ms-transform: rotate(10deg) scale(1.2); 
-    -webkit-transform: rotate(10deg) scale(1.2); 
-    transform: rotate(10deg) scale(1.2);}
+    -ms-transform: translateX(40%) translateY(10%) scale(1.75); 
+    -webkit-transform: translateX(40%) translateY(10%) scale(1.75); 
+    transform: translateX(40%) translateY(10%) scale(1.75);}
 @mixin oversized-left {
     -ms-transform: rotate(-10deg) scale(1.2); 
     -webkit-transform: rotate(-10deg) scale(1.2); 
@@ -139,7 +142,7 @@ body {
 
 .footer{
     background: $dark;
-    color: $light-grey;
+    color: $secondary;
     position: relative;
     z-index: 1;
     a{
@@ -158,11 +161,46 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     z-index: 0;}
-.header-image{
-    @include transition; 
+.bg-hero {
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;}
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 0;}
 
+/* navigation */
+.nav {
+    @include transition;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    background:  rgba($white,0);
+    
+    a{
+        @include transition;
+        color: $white;}
+    a:hover{
+        @include transition;
+        color: $primary !important;}
+}
+.nav-link {
+    padding: 8px 20px;
+    margin: auto;
+    text-transform: capitalize;
+}
+.scrolled {
+    @include transition;
+    background: rgba($white,.95);
+    a{
+        @include transition;
+        color: $secondary !important;}
+    a:hover{
+        @include transition;
+        color: $bright !important;}
+}
 
 /* text and headers */
 h2, h3 {
@@ -195,7 +233,7 @@ h5 {
   font-size: 1em;
   font-weight: 600;}
 .sm-text {
-  font-size: 0.707em !important;}
+  font-size: 0.8em !important;}
 .xl-text {
     font-size: 6em !important;}
 .centered-text {
@@ -214,7 +252,7 @@ a {
     text-decoration: none;}
 a:hover {
     @include slow-transition;
-    color: $secondary !important;}
+    color: $dark !important;}
 
 
 a.tile:hover{
@@ -237,17 +275,14 @@ a.tile:hover{
     img {
         position: relative;
         top: 0px;
-        right: 25px;
+        right: 55px;
     }
     h5 {
         margin-top: -15px;
     }
 }
 
-/* slick slider */
-.slick-slide{
-    height: auto;
-}
+
 
 /* inputs and buttons */
 input, textarea {
@@ -298,9 +333,11 @@ opacity: 1; /* Firefox */
         padding-left: 0px;}
 }
 .button-text:hover{  
+    color: $bright !important;
+    
     img {
         @include transition;
-        padding-left: 10px;}
+        padding-left: 5px;}
 }
 
 /*button white*/
@@ -328,6 +365,33 @@ opacity: 1; /* Firefox */
     @include rise;
     color: $primary !important;}
 
+/*button outline*/
+.button-outline {
+    @include slow-transition;
+    @include button-radius;
+    @include shadow-light;
+    background: rgba($white, 0);
+    border: 1px solid $white;
+    padding: 15px 50px;
+    position:relative;
+    top:0;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: .9em;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    color: $white !important;
+}
+.button-outline:hover{
+    @include slow-transition;
+    @include shadow;
+    @include rise;
+    background: rgba($white, 1);
+    color: $primary !important;}
+
 /*button dark*/
 .button-secondary {
     @include slow-transition;
@@ -351,7 +415,7 @@ opacity: 1; /* Firefox */
     @include slow-transition;
     @include rise;}
 
-/*button light/teal */
+/*button */
 .button {
     @include slow-transition;
     @include button-radius;
@@ -380,23 +444,30 @@ opacity: 1; /* Firefox */
     @include border-radius;
     background: #fff;
 }
-.overlay {
+.more {
     @include transition;
-    display: none;
+    opacity: 0;
     position: absolute;
-    z-index: 2;
-    padding: $sm;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
     color: #fff !important;
+    background: $primary;
 }
-.overlay:hover {
+.box:hover .more {
     @include transition;
-    display: block;
-    background: rgba(37,27,80,.8);
+    opacity: 1;
+    
 }
 .absolute{
     display: block;
     position: absolute;
     z-index: 2;
+}
+.relative {
+    position: relative;
 }
 
 .rise{
@@ -445,10 +516,10 @@ i.material-icons {
     }
 .sm-hero, .md-hero, .lg-hero{
     min-height: 400px;
-    a {
-        color: #fff;}
 }
-
+.tinted {
+    background: rgba($primary, 0.2);
+}
 /* sections */
 .sm-section{
   padding-top: 100px;
