@@ -3301,11 +3301,19 @@ body {
   .nav a {
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
-    color: #ffffff; }
+    color: #ffffff;
+    padding: 0;
+    background: rgba(255, 255, 255, 0); }
   .nav a:hover {
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
-    color: #383b53 !important; }
+    color: #383b53 !important;
+    padding: 5px 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    border-radius: 6px;
+    background: white; }
 
 .nav-link {
   padding: 8px 20px;

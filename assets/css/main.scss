@@ -189,10 +189,15 @@ body {
     
     a{
         @include transition;
-        color: $white;}
+        color: $white;
+        padding: 0;
+        background: rgba(#ffffff, 0);}
     a:hover{
         @include transition;
-        color: $primary !important;}
+        color: $primary !important;
+        padding: 5px 10px;
+        @include border-radius;
+        background: rgba(#ffffff, 1);}
 }
 .nav-link {
     padding: 8px 20px;
