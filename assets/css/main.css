@@ -3964,33 +3964,33 @@ i.material-icons {
     background-size: contain; }
 
   .lg-padding {
-    padding: calc(100px * 0.8); }
+    padding: calc(100px * 0.7); }
 
   .lg-top-padding {
-    padding-top: calc(100px * 0.8); }
+    padding-top: calc(100px * 0.7); }
 
   .lg-right-padding {
-    padding-right: calc(100px * 0.8); }
+    padding-right: calc(100px * 0.7); }
 
   .lg-bottom-padding {
-    padding-bottom: calc(100px * 0.8); }
+    padding-bottom: calc(100px * 0.7); }
 
   .lg-left-padding {
-    padding-left: calc(100px * 0.8); }
+    padding-left: calc(100px * 0.7); }
 
   .xl-padding {
-    padding: calc(160px * 0.8); }
+    padding: calc(160px * 0.7); }
 
   .xl-top-padding {
-    padding-top: calc(160px * 0.8); }
+    padding-top: calc(160px * 0.7); }
 
   .xl-right-padding {
-    padding-right: calc(160px * 0.8); }
+    padding-right: calc(160px * 0.7); }
 
   .xl-bottom-padding {
-    padding-bottom: calc(160px * 0.8); }
+    padding-bottom: calc(160px * 0.7); }
 
   .xl-left-padding {
-    padding-left: calc(160px * 0.8); } }
+    padding-left: calc(160px * 0.7); } }
 
 /*# sourceMappingURL=main.css.map */
