@@ -3215,14 +3215,14 @@
         position: absolute;
         top: 0;
         left: 0;
-        content: "•";
+        content: "■";
         width: 20px;
         height: 20px;
         font-family: "slick";
-        font-size: 20px;
+        font-size: 26px;
         line-height: 20px;
         text-align: center;
-        color: #383b53;
+        color: #92afd7;
         opacity: 0.25;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale; }
@@ -3236,8 +3236,8 @@
 body {
   font: 100% "Source Sans Pro", Open Sans, Helvetica, Arial, sans-serif;
   font-weight: 400;
-  font-size: 1em;
-  line-height: 1.2em;
+  font-size: 1.08em;
+  line-height: 1.4em;
   color: #383b53;
   background: #fff;
   margin: 0;
@@ -3276,6 +3276,16 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   z-index: 0; }
+
+.bg-image-right {
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: contain; }
+
+.bg-image-left {
+  background-repeat: no-repeat;
+  background-position: -5%;
+  background-size: contain; }
 
 /* navigation */
 .nav {
@@ -3931,5 +3941,26 @@ i.material-icons {
   -ms-transform: translateX(40%) translateY(10%) scale(1.75);
   -webkit-transform: translateX(40%) translateY(10%) scale(1.75);
   transform: translateX(40%) translateY(10%) scale(1.75); }
+
+@media only screen and (max-width: 766px) {
+  .oversized {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+
+  .oversized-right {
+    -ms-transform: translateX(20%) translateY(10%) scale(1.4);
+    -webkit-transform: translateX(20%) translateY(10%) scale(1.4);
+    transform: translateX(20%) translateY(10%) scale(1.4); }
+
+  .bg-image-right {
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: 90%; }
+
+  .bg-image-left {
+    background-repeat: no-repeat;
+    background-position: -1% bottom;
+    background-size: contain; } }
 
 /*# sourceMappingURL=main.css.map */

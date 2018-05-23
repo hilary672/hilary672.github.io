@@ -128,8 +128,8 @@ $white: #ffffff;
 body {
     font: 100% $fonts;
     font-weight: 400;
-    font-size: 1em;
-    line-height: 1.2em;
+    font-size: 1.08em;
+    line-height: 1.4em;
     color: $primary;
     background: #fff;
     margin:0;
@@ -167,6 +167,14 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     z-index: 0;}
+.bg-image-right {
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: contain;}
+.bg-image-left {
+    background-repeat: no-repeat;
+    background-position: -5%; 
+    background-size: contain;}
 
 /* navigation */
 .nav {
@@ -670,3 +678,21 @@ i.material-icons {
 .oversized-right{
     @include oversized-right;}
 
+@media only screen and (max-width: 766px) {
+    .oversized {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);}
+    .oversized-right {
+        -ms-transform: translateX(20%) translateY(10%) scale(1.4);
+        -webkit-transform: translateX(20%) translateY(10%) scale(1.4);
+        transform: translateX(20%) translateY(10%) scale(1.4);}
+    .bg-image-right {
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-size: 90%;}
+    .bg-image-left {
+        background-repeat: no-repeat;
+        background-position: -1% bottom; 
+        background-size: contain;}
+}
