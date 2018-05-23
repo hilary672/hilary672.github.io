@@ -4005,7 +4005,7 @@ i.material-icons {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: none !important;
+    background-attachment: scroll !important;
     z-index: 0; } }
 
 /*# sourceMappingURL=main.css.map */
