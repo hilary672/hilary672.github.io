@@ -3961,6 +3961,36 @@ i.material-icons {
   .bg-image-left {
     background-repeat: no-repeat;
     background-position: -1% bottom;
-    background-size: contain; } }
+    background-size: contain; }
+
+  .lg-padding {
+    padding: calc($lg * .8); }
+
+  .lg-top-padding {
+    padding-top: calc($lg * .8); }
+
+  .lg-right-padding {
+    padding-right: calc($lg * .8); }
+
+  .lg-bottom-padding {
+    padding-bottom: calc($lg * .8); }
+
+  .lg-left-padding {
+    padding-left: calc($lg * .8); }
+
+  .xl-padding {
+    padding: calc($xl * .8); }
+
+  .xl-top-padding {
+    padding-top: calc($xl * .8); }
+
+  .xl-right-padding {
+    padding-right: calc($xl * .8); }
+
+  .xl-bottom-padding {
+    padding-bottom: calc($xl * .8); }
+
+  .xl-left-padding {
+    padding-left: calc($xl * .8); } }
 
 /*# sourceMappingURL=main.css.map */
