@@ -721,4 +721,10 @@ i.material-icons {
         padding-bottom: calc(#{$xl} * 0.7);}
     .xl-left-padding{
         padding-left: calc(#{$xl} * 0.7);}
+    .bg-hero {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: none !important;
+        z-index: 0;}
 }

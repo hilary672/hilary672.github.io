@@ -3999,6 +3999,13 @@ i.material-icons {
     padding-bottom: calc(160px * 0.7); }
 
   .xl-left-padding {
-    padding-left: calc(160px * 0.7); } }
+    padding-left: calc(160px * 0.7); }
+
+  .bg-hero {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: none !important;
+    z-index: 0; } }
 
 /*# sourceMappingURL=main.css.map */
