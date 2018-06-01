@@ -3915,8 +3915,9 @@ i.material-icons {
   width: 200px;
   height: 200px; }
 
-img #logo {
-  max-width: 800px; }
+#logo {
+  max-width: 800px;
+  margin: auto; }
 
 /* sizes + transformations */
 .sm-max-width {
