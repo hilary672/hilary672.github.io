@@ -3968,7 +3968,7 @@ i.material-icons {
 
   .bg-image-left {
     background-repeat: no-repeat;
-    background-position: -1% bottom;
+    background-position: 0 bottom;
     background-size: contain; }
 
   .lg-padding {
