@@ -3287,6 +3287,11 @@ body {
   background-position: -5%;
   background-size: contain; }
 
+.bg-contain-center {
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain; }
+
 /* navigation */
 .nav {
   -webkit-transition: all .5s ease-in-out;
