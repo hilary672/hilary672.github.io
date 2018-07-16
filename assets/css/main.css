@@ -3285,7 +3285,8 @@ body {
 .bg-image-left {
   background-repeat: no-repeat;
   background-position: -5%;
-  background-size: contain; }
+  background-size: contain;
+  max-width: 55%; }
 
 .bg-contain-center {
   background-repeat: no-repeat;
