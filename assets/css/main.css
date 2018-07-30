@@ -3960,6 +3960,9 @@ i.material-icons {
   -webkit-transform: translateX(40%) translateY(10%) scale(1.75);
   transform: translateX(40%) translateY(10%) scale(1.75); }
 
+.phone {
+  overflow-x: visible; }
+
 @media only screen and (max-width: 766px) {
   .oversized {
     -webkit-transform: scale(1);
@@ -4016,6 +4019,9 @@ i.material-icons {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll !important;
-    z-index: 0; } }
+    z-index: 0; }
+
+  .phone {
+    overflow-x: hidden; } }
 
 /*# sourceMappingURL=main.css.map */

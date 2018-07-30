@@ -691,6 +691,8 @@ i.material-icons {
     @include oversized;}
 .oversized-right{
     @include oversized-right;}
+.phone {
+    overflow-x: visible;}
 
 @media only screen and (max-width: 766px) {
     .oversized {
@@ -736,4 +738,7 @@ i.material-icons {
         background-repeat: no-repeat;
         background-attachment: scroll !important;
         z-index: 0;}
+    .phone {
+        overflow-x: hidden;
+    }
 }
