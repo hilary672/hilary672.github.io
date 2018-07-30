@@ -3961,7 +3961,8 @@ i.material-icons {
   transform: translateX(40%) translateY(10%) scale(1.75); }
 
 .phone {
-  overflow-x: visible; }
+  overflow-x: visible;
+  overflow-y: visible; }
 
 @media only screen and (max-width: 766px) {
   .oversized {
@@ -4022,6 +4023,7 @@ i.material-icons {
     z-index: 0; }
 
   .phone {
-    overflow-x: hidden; } }
+    overflow-x: hidden;
+    overflow-y: visible; } }
 
 /*# sourceMappingURL=main.css.map */
