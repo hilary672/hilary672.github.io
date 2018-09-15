@@ -19,10 +19,10 @@
   background: #92afd7; }
 
 .light-grey-color {
-  color: #f1eff2; }
+  color: #f7f5f7; }
 
 .light-grey-bg {
-  background: #f1eff2; }
+  background: #f7f5f7; }
 
 .grey-color {
   color: #eeeeee; }
@@ -3419,7 +3419,7 @@ a.tile:hover {
   display: inline-block !important;
   padding: 2px 15px;
   margin: 4px;
-  background: #f1eff2;
+  background: #f7f5f7;
   border-radius: 20px; }
 #skills p.highlight {
   background: #92afd7;
