@@ -3670,6 +3670,9 @@ input, textarea {
 .relative {
   position: relative; }
 
+.overflow-x {
+  overflow-x: hidden; }
+
 .rise {
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out; }
