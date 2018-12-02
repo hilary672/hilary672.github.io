@@ -211,7 +211,7 @@ body {
 .scrolled {
     @include transition;
     background: rgba($white,.95);
-    box-shadow: 0px 5px 20px rgba($dark, .1);
+    box-shadow: 0px 2px 25px rgba(4, 8, 15, 0.05);
     a{
         @include transition;
         color: $secondary !important;}

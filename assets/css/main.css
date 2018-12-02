@@ -3329,7 +3329,7 @@ body {
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0px 5px 20px rgba(4, 8, 15, 0.1); }
+  box-shadow: 0px 2px 25px rgba(4, 8, 15, 0.05); }
   .scrolled a {
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
