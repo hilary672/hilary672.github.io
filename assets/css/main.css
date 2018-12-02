@@ -3328,7 +3328,8 @@ body {
 .scrolled {
   -webkit-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
-  background: rgba(255, 255, 255, 0.95); }
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: rgba(4, 8, 15, 0.1); }
   .scrolled a {
     -webkit-transition: all .5s ease-in-out;
     transition: all .5s ease-in-out;
