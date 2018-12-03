@@ -3963,6 +3963,9 @@ i.material-icons {
   -webkit-transform: translateX(40%) translateY(10%) scale(1.75);
   transform: translateX(40%) translateY(10%) scale(1.75); }
 
+@media only screen and (max-width: 466px) {
+  h1 {
+    font-size: 3.7em; } }
 @media only screen and (max-width: 766px) {
   .oversized {
     -webkit-transform: scale(1);
