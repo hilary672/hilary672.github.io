@@ -3966,7 +3966,7 @@ i.material-icons {
 @media only screen and (max-width: 466px) {
   h1 {
     font-size: 3.7em; } }
-@media only screen and (max-width: 766px) {
+@media only screen and (max-width: 1024px) {
   .oversized {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
