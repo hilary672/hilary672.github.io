@@ -3430,7 +3430,7 @@ a.tile:hover {
 .timeline-container {
   position: sticky;
   top: 100px;
-  max-height: calc(100vh - 150px);
+  max-height: 600px;
   overflow: hidden;
   width: 100%; }
 
