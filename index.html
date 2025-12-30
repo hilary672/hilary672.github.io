@@ -367,16 +367,18 @@ $(document).ready(function(){
 </script>
 <script>
 // Timeline scroll-based transitions
-$(document).ready(function() {
+$(window).on('load', function() {
   var timelineWrapper = $('#timeline-wrapper');
   var timelineEntries = $('.timeline-entry');
   var entryCount = timelineEntries.length;
   
   if (entryCount === 0) return;
   
-  // Set the wrapper height to create scroll space (each entry gets viewport height worth of scroll)
+  // Set a reasonable height for scroll space
   function setTimelineHeight() {
-    var scrollHeight = entryCount * $(window).height();
+    var windowHeight = $(window).height();
+    // Use 200vh (2 viewport heights) to give enough scroll space for smooth transitions
+    var scrollHeight = windowHeight * 2;
     timelineWrapper.css('height', scrollHeight + 'px');
   }
   
@@ -385,37 +387,48 @@ $(document).ready(function() {
   function updateTimeline() {
     var scrollTop = $(window).scrollTop();
     var windowHeight = $(window).height();
-    var timelineTop = timelineWrapper.offset().top;
+    var timelineOffset = timelineWrapper.offset();
+    
+    if (!timelineOffset) return; // Element not found or not visible
+    
+    var timelineTop = timelineOffset.top;
     var timelineHeight = timelineWrapper.outerHeight();
     
-    // Calculate when the timeline animation should start
-    // Start when the top of the timeline wrapper enters the viewport (reaches top of viewport)
-    var animationStart = timelineTop - windowHeight;
+    // Calculate viewport boundaries
+    var viewportTop = scrollTop;
+    var viewportBottom = scrollTop + windowHeight;
     
-    // Calculate when the animation should end
-    // End when we've scrolled through the full height of the timeline wrapper
-    var animationEnd = timelineTop + timelineHeight - windowHeight;
+    // Animation starts when timeline top enters viewport
+    // Animation ends when we've scrolled past the timeline
+    var animationStart = timelineTop;
+    var animationEnd = timelineTop + timelineHeight;
     
-    // Calculate current scroll position
-    var currentScroll = scrollTop;
-    
-    // Handle edge cases: before start or after end
+    // Calculate progress through the timeline section
     var activeIndex;
-    if (currentScroll < animationStart) {
-      // Before timeline section, show first entry
+    
+    if (viewportBottom < animationStart) {
+      // Timeline hasn't entered viewport yet, show first entry
       activeIndex = 0;
-    } else if (currentScroll > animationEnd) {
-      // After timeline section, show last entry
+    } else if (viewportTop > animationEnd) {
+      // Scrolled past timeline section, show last entry
       activeIndex = entryCount - 1;
     } else {
       // Calculate progress (0 to 1) through the timeline animation
-      var progress = (currentScroll - animationStart) / (animationEnd - animationStart);
-      progress = Math.max(0, Math.min(1, progress));
-      
-      // Map progress to entry index (0 to entryCount-1)
-      // Each entry gets 1/entryCount of the scroll range
-      activeIndex = Math.floor(progress * entryCount);
-      activeIndex = Math.max(0, Math.min(activeIndex, entryCount - 1));
+      var scrollRange = animationEnd - animationStart;
+      if (scrollRange <= 0) {
+        activeIndex = 0;
+      } else {
+        // Progress based on how far the viewport has moved through the timeline
+        // When viewportBottom reaches animationStart, progress = 0
+        // When viewportTop reaches animationEnd, progress = 1
+        var scrollPosition = viewportBottom - animationStart;
+        var progress = scrollPosition / scrollRange;
+        progress = Math.max(0, Math.min(1, progress));
+        
+        // Map progress to entry index
+        activeIndex = Math.floor(progress * entryCount);
+        activeIndex = Math.max(0, Math.min(activeIndex, entryCount - 1));
+      }
     }
     
     // Update active class
@@ -435,13 +448,13 @@ $(document).ready(function() {
     }
   });
   
-  // Initial update
-  setTimeout(updateTimeline, 100);
+  // Initial update after a short delay to ensure layout is complete
+  setTimeout(updateTimeline, 200);
   
   // Update on window resize
   $(window).on('resize', function() {
     setTimelineHeight();
-    setTimeout(updateTimeline, 50);
+    setTimeout(updateTimeline, 100);
   });
 });
 </script>
