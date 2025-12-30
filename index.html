@@ -374,25 +374,49 @@ $(document).ready(function() {
   
   if (entryCount === 0) return;
   
+  // Set the wrapper height to create scroll space (each entry gets viewport height worth of scroll)
+  function setTimelineHeight() {
+    var scrollHeight = entryCount * $(window).height();
+    timelineWrapper.css('height', scrollHeight + 'px');
+  }
+  
+  setTimelineHeight();
+  
   function updateTimeline() {
     var scrollTop = $(window).scrollTop();
     var windowHeight = $(window).height();
     var timelineTop = timelineWrapper.offset().top;
-    var timelineBottom = timelineTop + timelineWrapper.outerHeight();
+    var timelineHeight = timelineWrapper.outerHeight();
     
-    // Check if timeline is in viewport
-    if (scrollTop + windowHeight < timelineTop || scrollTop > timelineBottom) {
-      return; // Timeline not in view, keep current state
+    // Calculate when the timeline animation should start
+    // Start when the top of the timeline wrapper enters the viewport (reaches top of viewport)
+    var animationStart = timelineTop - windowHeight;
+    
+    // Calculate when the animation should end
+    // End when we've scrolled through the full height of the timeline wrapper
+    var animationEnd = timelineTop + timelineHeight - windowHeight;
+    
+    // Calculate current scroll position
+    var currentScroll = scrollTop;
+    
+    // Handle edge cases: before start or after end
+    var activeIndex;
+    if (currentScroll < animationStart) {
+      // Before timeline section, show first entry
+      activeIndex = 0;
+    } else if (currentScroll > animationEnd) {
+      // After timeline section, show last entry
+      activeIndex = entryCount - 1;
+    } else {
+      // Calculate progress (0 to 1) through the timeline animation
+      var progress = (currentScroll - animationStart) / (animationEnd - animationStart);
+      progress = Math.max(0, Math.min(1, progress));
+      
+      // Map progress to entry index (0 to entryCount-1)
+      // Each entry gets 1/entryCount of the scroll range
+      activeIndex = Math.floor(progress * entryCount);
+      activeIndex = Math.max(0, Math.min(activeIndex, entryCount - 1));
     }
-    
-    // Calculate how far through the timeline section we've scrolled
-    var scrollProgress = (scrollTop + windowHeight - timelineTop) / (timelineBottom - timelineTop + windowHeight);
-    scrollProgress = Math.max(0, Math.min(1, scrollProgress));
-    
-    // Determine which entry should be active based on scroll progress
-    // Each entry gets equal portion of the scroll
-    var activeIndex = Math.floor(scrollProgress * entryCount);
-    activeIndex = Math.max(0, Math.min(activeIndex, entryCount - 1));
     
     // Update active class
     timelineEntries.removeClass('active');
@@ -412,10 +436,13 @@ $(document).ready(function() {
   });
   
   // Initial update
-  updateTimeline();
+  setTimeout(updateTimeline, 100);
   
   // Update on window resize
-  $(window).on('resize', updateTimeline);
+  $(window).on('resize', function() {
+    setTimelineHeight();
+    setTimeout(updateTimeline, 50);
+  });
 });
 </script>
 

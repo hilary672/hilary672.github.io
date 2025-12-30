@@ -3432,7 +3432,12 @@ a.tile:hover {
   position: sticky;
   top: 100px;
   max-height: calc(100vh - 150px);
-  overflow: hidden; }
+  overflow: hidden;
+  width: 100%; }
+
+.timeline-spacer {
+  height: 0;
+  visibility: hidden; }
 
 .timeline-entry {
   opacity: 0;
