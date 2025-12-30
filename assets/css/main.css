@@ -3424,6 +3424,32 @@ a.tile:hover {
   background: #92afd7;
   color: #ffffff; }
 
+#timeline-wrapper {
+  position: relative;
+  min-height: 100vh; }
+
+.timeline-container {
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 150px);
+  overflow: hidden; }
+
+.timeline-entry {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none; }
+
+.timeline-entry.active {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+  pointer-events: auto; }
+
 #timeline img {
   position: relative;
   top: 0px;
