@@ -3425,7 +3425,9 @@ a.tile:hover {
   color: #ffffff; }
 
 #timeline-wrapper {
-  position: relative; }
+  position: relative;
+  max-height: 600px;
+  height: 600px; }
 
 .timeline-container {
   position: sticky;

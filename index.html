@@ -374,16 +374,6 @@ $(window).on('load', function() {
   
   if (entryCount === 0) return;
   
-  // Set height to create scroll space for transitions
-  function setTimelineHeight() {
-    // Create scroll space: each entry gets 600px of scroll space
-    // This allows smooth transitions as user scrolls
-    var scrollHeight = 600 * entryCount;
-    timelineWrapper.css('height', scrollHeight + 'px');
-  }
-  
-  setTimelineHeight();
-  
   function updateTimeline() {
     var scrollTop = $(window).scrollTop();
     var windowHeight = $(window).height();
@@ -453,7 +443,6 @@ $(window).on('load', function() {
   
   // Update on window resize
   $(window).on('resize', function() {
-    setTimelineHeight();
     setTimeout(updateTimeline, 100);
   });
 });
