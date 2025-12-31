@@ -1,2 +1,0 @@
-# hilaryhampton.com
-# hhamptondesign.com

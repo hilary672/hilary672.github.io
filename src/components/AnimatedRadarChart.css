@@ -1,0 +1,75 @@
+.radar-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.skills-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #6366f1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+}
+
+.skill-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+  text-align: left;
+}
+
+.skill-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #6366f1;
+  min-width: 50px;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .radar-chart-container {
+    padding: 1rem;
+    gap: 2rem;
+  }
+  
+  .skills-legend {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .skill-item {
+    padding: 0.75rem 1rem;
+  }
+  
+  .skill-label {
+    font-size: 0.85rem;
+  }
+  
+  .skill-value {
+    font-size: 1.1rem;
+  }
+}
+
